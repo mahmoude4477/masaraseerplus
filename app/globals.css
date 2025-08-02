@@ -1,0 +1,287 @@
+@tailwind base;
+
+@custom-variant dark (&:is(.dark *));
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 48 46% 95%;
+    --foreground: 25 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 20% 15%;
+    --primary: 25 45% 20%;
+    --primary-foreground: 48 46% 95%;
+    --secondary: 35 25% 75%;
+    --secondary-foreground: 25 20% 15%;
+    --muted: 35 25% 85%;
+    --muted-foreground: 25 15% 45%;
+    --accent: 35 25% 80%;
+    --accent-foreground: 25 20% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 25 45% 20%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 25 20% 10%;
+    --foreground: 48 46% 95%;
+    --card: 25 20% 15%;
+    --card-foreground: 48 46% 95%;
+    --popover: 25 20% 15%;
+    --popover-foreground: 48 46% 95%;
+    --primary: 48 46% 95%;
+    --primary-foreground: 25 20% 10%;
+    --secondary: 25 15% 25%;
+    --secondary-foreground: 48 46% 95%;
+    --muted: 25 15% 25%;
+    --muted-foreground: 35 25% 65%;
+    --accent: 25 15% 25%;
+    --accent-foreground: 48 46% 95%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 25 15% 25%;
+    --input: 25 15% 25%;
+    --ring: 48 46% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Arabic font optimization */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* RTL/LTR Direction Handling */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
+}
+
+/* RTL Flexbox adjustments */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="ltr"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+}
+
+/* RTL specific spacing utilities */
+.rtl-space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="ltr"] .rtl-space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+.rtl-space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+[dir="ltr"] .rtl-space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+.rtl-space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-right: 1.5rem;
+  margin-left: 0;
+}
+
+[dir="ltr"] .rtl-space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 1.5rem;
+  margin-right: 0;
+}
+
+/* RTL margin and padding utilities */
+.rtl-mr-2 {
+  margin-right: 0.5rem;
+}
+
+[dir="ltr"] .rtl-mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.rtl-ml-2 {
+  margin-left: 0.5rem;
+}
+
+[dir="ltr"] .rtl-ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.rtl-pr-3 {
+  padding-right: 0.75rem;
+}
+
+[dir="ltr"] .rtl-pr-3 {
+  padding-right: 0;
+  padding-left: 0.75rem;
+}
+
+.rtl-pl-3 {
+  padding-left: 0.75rem;
+}
+
+[dir="ltr"] .rtl-pl-3 {
+  padding-left: 0;
+  padding-right: 0.75rem;
+}
+
+/* RTL positioning utilities */
+.rtl-right-3 {
+  right: 0.75rem;
+}
+
+[dir="ltr"] .rtl-right-3 {
+  right: auto;
+  left: 0.75rem;
+}
+
+.rtl-left-2 {
+  left: 0.5rem;
+}
+
+[dir="ltr"] .rtl-left-2 {
+  left: auto;
+  right: 0.5rem;
+}
+
+.rtl-left-4 {
+  left: 1rem;
+}
+
+[dir="ltr"] .rtl-left-4 {
+  left: auto;
+  right: 1rem;
+}
+
+/* RTL border utilities */
+.rtl-border-r-4 {
+  border-right-width: 4px;
+}
+
+[dir="ltr"] .rtl-border-r-4 {
+  border-right-width: 0;
+  border-left-width: 4px;
+}
+
+/* RTL text alignment */
+.rtl-text-right {
+  text-align: right;
+}
+
+[dir="ltr"] .rtl-text-right {
+  text-align: left;
+}
+
+.rtl-text-left {
+  text-align: left;
+}
+
+[dir="ltr"] .rtl-text-left {
+  text-align: right;
+}
+
+/* RTL justify utilities */
+.rtl-justify-end {
+  justify-content: flex-end;
+}
+
+[dir="ltr"] .rtl-justify-end {
+  justify-content: flex-start;
+}
+
+.rtl-justify-start {
+  justify-content: flex-start;
+}
+
+[dir="ltr"] .rtl-justify-start {
+  justify-content: flex-end;
+}
+
+/* RTL items alignment */
+.rtl-items-end {
+  align-items: flex-end;
+}
+
+[dir="ltr"] .rtl-items-end {
+  align-items: flex-start;
+}
+
+.rtl-items-start {
+  align-items: flex-start;
+}
+
+[dir="ltr"] .rtl-items-start {
+  align-items: flex-end;
+}
+
+:root {
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+.dark {
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+@theme inline {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
